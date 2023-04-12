@@ -1,0 +1,8 @@
+name: snake
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - dash
+  - dash-extensions
+  - pandas
