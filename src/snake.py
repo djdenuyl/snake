@@ -1,6 +1,12 @@
+"""
+Player character
+
+author: David den Uyl (djdenuyl@gmail.com)
+date: 2023-04-12
+"""
 from dataclasses import dataclass, field
-from snake.direction import Direction
-from snake.coord import Coord
+from src.direction import Direction
+from src.coord import Coord
 from typing import Union
 
 

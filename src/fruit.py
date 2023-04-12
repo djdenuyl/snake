@@ -1,5 +1,11 @@
+"""
+Game objective
+
+author: David den Uyl (djdenuyl@gmail.com)
+date: 2023-04-12
+"""
 from dataclasses import dataclass
-from snake.coord import Coord
+from src.coord import Coord
 from typing import Union
 
 

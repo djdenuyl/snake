@@ -1,5 +1,11 @@
+"""
+Snake direction
+
+author: David den Uyl (djdenuyl@gmail.com)
+date: 2023-04-12
+"""
 from enum import Enum
-from snake.coord import Coord
+from src.coord import Coord
 
 
 class Direction(Enum):

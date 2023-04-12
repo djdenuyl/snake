@@ -4,8 +4,7 @@ from dash.exceptions import PreventUpdate
 from dash.html import Div
 from dash_extensions import EventListener
 from plotly.express import imshow
-from snake.direction import Direction
-from snake.game import Game
+from src import Direction, Game
 
 FRAME_RATE = 5
 CONTROL_MAPPER = {

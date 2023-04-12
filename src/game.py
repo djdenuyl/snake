@@ -1,13 +1,16 @@
 """
 Snake game logic
+
+author: David den Uyl (djdenuyl@gmail.com)
+date: 2023-04-12
 """
 from __future__ import annotations
 from random import choice
 from numpy import zeros, array, where, column_stack
-from snake.coord import Coord
-from snake.direction import Direction, opposite
-from snake.fruit import Fruit
-from snake.snake import Snake
+from src.coord import Coord
+from src.direction import Direction, opposite
+from src.fruit import Fruit
+from src.snake import Snake
 
 
 class Game:

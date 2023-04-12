@@ -1,3 +1,9 @@
+"""
+Game coordinates
+
+author: David den Uyl (djdenuyl@gmail.com)
+date: 2023-04-12
+"""
 from __future__ import annotations
 from dataclasses import dataclass
 
