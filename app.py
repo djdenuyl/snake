@@ -3,7 +3,7 @@ from dash.dcc import Graph, Interval, Store
 from dash.exceptions import PreventUpdate
 from dash.html import Div
 from dash_extensions import EventListener
-from plotly.express import imshow
+from plotly.graph_objs import Figure, Heatmap, Layout
 from src import Direction, Game
 
 FRAME_RATE = 5
@@ -13,6 +13,13 @@ CONTROL_MAPPER = {
     'ArrowLeft': Direction.LEFT,
     'ArrowRight': Direction.RIGHT
 }
+
+COLOR_SCALE = [
+    [0.0, '#2A9D8F'],
+    [.33, '#F4A261'],
+    [.67, '#E9C46A'],
+    [1, '#E76F51'],
+]
 
 
 class App(Dash):
@@ -24,7 +31,35 @@ class App(Dash):
         )
         self.game = Game(10, 10)
 
-        self.setup()
+        self._setup()
+
+    def _init_graph(self) -> Figure:
+        return Figure(
+            data=Heatmap(
+                z=self.game.next(),
+                showscale=False,
+                colorscale=COLOR_SCALE
+            ),
+            layout=Layout(
+                yaxis=dict(
+                    showgrid=False,
+                    visible=False,
+                    fixedrange=True,
+                    autorange='reversed'
+                ),
+                xaxis=dict(
+                    showgrid=False,
+                    visible=False,
+                    fixedrange=True
+                ),
+                margin=dict(
+                    t=0,
+                    b=0,
+                    l=0,
+                    r=0
+                )
+            )
+        )
 
     def get_layout(self):
         return Div(
@@ -43,7 +78,7 @@ class App(Dash):
                 Store(id='store'),
                 Graph(
                     id='graph',
-                    figure=imshow(self.game.next())
+                    figure=self._init_graph()
                 )
             ]
         )
@@ -89,7 +124,7 @@ class App(Dash):
             Input('store', 'data'),
         )
 
-    def setup(self):
+    def _setup(self):
         """ set up the layout and the callbacks """
         self.layout = self.get_layout()
         self.get_callbacks()

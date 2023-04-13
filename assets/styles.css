@@ -1,5 +1,17 @@
+/*
+author: David den Uyl (djdenuyl@gmail.com)
+date: 2023-04-12
+*/
 :root {
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
+    --white: white;
+	--black: #000000;
+	--blue: #264653;
+	--teal:	#2A9D8F;
+	--yellow: #E9C46A;
+	--orange: #F4A261;
+    --red: #E76F51;
 }
 
 html, body {
@@ -8,9 +20,14 @@ html, body {
 }
 
 #app-container {
-    background: black;
+    background: var(--blue);
     height: 100vh;
     width: 100vw;
     display: grid;
     place-items: center;
+}
+
+#graph {
+    width: 30vw;
+    aspect-ratio: 1;
 }
